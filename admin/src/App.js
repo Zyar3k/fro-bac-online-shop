@@ -13,6 +13,7 @@ import "./App.css";
 import UserList from "./pages/UserList/UserList";
 import User from "./pages/User/User";
 import NewUser from "./pages/NewUser/NewUser";
+import ProductList from "./pages/ProductList/ProductList";
 
 function App() {
   return (
@@ -31,6 +32,15 @@ function App() {
             <User />
           </Route>
           <Route path="/newUser">
+            <NewUser />
+          </Route>
+          <Route exact path="/products">
+            <ProductList />
+          </Route>
+          <Route path="/product/:userId">
+            <User />
+          </Route>
+          <Route path="/newProduct">
             <NewUser />
           </Route>
         </Switch>
