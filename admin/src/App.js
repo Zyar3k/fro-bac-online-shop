@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Sidebar from "./components/Sidebar/Sidebar";
 import TopBar from "./components/TopBar/TopBar";
@@ -14,6 +9,7 @@ import UserList from "./pages/UserList/UserList";
 import User from "./pages/User/User";
 import NewUser from "./pages/NewUser/NewUser";
 import ProductList from "./pages/ProductList/ProductList";
+import Product from "./pages/Product/Product";
 
 function App() {
   return (
@@ -38,7 +34,7 @@ function App() {
             <ProductList />
           </Route>
           <Route path="/product/:userId">
-            <User />
+            <Product />
           </Route>
           <Route path="/newProduct">
             <NewUser />
