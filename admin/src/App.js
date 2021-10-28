@@ -12,6 +12,7 @@ import Home from "./pages/Home/Home";
 import "./App.css";
 import UserList from "./pages/UserList/UserList";
 import User from "./pages/User/User";
+import NewUser from "./pages/NewUser/NewUser";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/user/:userId">
             <User />
+          </Route>
+          <Route path="/newUser">
+            <NewUser />
           </Route>
         </Switch>
       </div>
