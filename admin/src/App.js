@@ -11,6 +11,7 @@ import Home from "./pages/Home/Home";
 
 import "./App.css";
 import UserList from "./pages/UserList/UserList";
+import User from "./pages/User/User";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/users">
             <UserList />
+          </Route>
+          <Route path="/user/:userId">
+            <User />
           </Route>
         </Switch>
       </div>
