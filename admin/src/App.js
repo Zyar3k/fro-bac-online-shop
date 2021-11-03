@@ -14,6 +14,7 @@ import NewProduct from "./pages/NewProduct/NewProduct";
 import Login from "./pages/Login/Login";
 
 function App() {
+  // const admin = false;
   const admin = JSON.parse(
     JSON.parse(localStorage.getItem("persist:root")).user
   ).currentUser.isAdmin;
