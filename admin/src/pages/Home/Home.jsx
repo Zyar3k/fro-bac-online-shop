@@ -1,17 +1,55 @@
 import Chart from "../../components/Chart/Chart";
 import FeaturedInfo from "../../components/FeaturedInfo/FeaturedInfo";
 import "./Home.css";
+import { userRequest } from "../../requestMethods";
 
 import { userData } from "../../dummyData.js";
 import WidgetLg from "../../components/WidgetLg/WidgetLg";
 import WidgetSm from "../../components/WidgetSm/WidgetSm";
+import { useEffect, useMemo, useState } from "react";
 
 const Home = () => {
+  const [userStats, setUserStats] = useState([]);
+
+  const MONTHS = useMemo(
+    () => [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Agu",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    []
+  );
+
+  useEffect(() => {
+    const getStats = async () => {
+      try {
+        const res = await userRequest.get("/users/stats");
+        res.data.map((item) =>
+          setUserStats((prev) => [
+            ...prev,
+            { name: MONTHS[item._id - 1], "Active User": item.total },
+          ])
+        );
+      } catch {}
+    };
+    getStats();
+  }, [MONTHS]);
+
+  console.log(userStats);
   return (
     <div className="home">
       <FeaturedInfo />
       <Chart
-        data={userData}
+        data={userStats}
         title="User Analytics"
         grid
         dataKey="Active User"
